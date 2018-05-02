@@ -30,13 +30,13 @@ CREATE TABLE IF NOT EXISTS users (
   `City` varchar(64) DEFAULT NULL,
   `Province` varchar(64) DEFAULT NULL,
   `Postal` varchar(16) DEFAULT NULL,
-  `AccountType` char(1) DEFAULT,
+  `AccountType` char(1) DEFAULT NULL,
   `LastLoginDt` timestamp DEFAULT '0000-00-00 00:00:00',
   `CreateDt` timestamp DEFAULT CURRENT_TIMESTAMP,
   `CreateBy` varchar(32) DEFAULT NULL,
-  `UpdateDt` timestamp '0000-00-00 00:00:00',
+  `UpdateDt` timestamp DEFAULT '0000-00-00 00:00:00',
   `UpdateBy` varchar(32) DEFAULT NULL,
-  PRIMARY KEY ('uid'),
+  PRIMARY KEY (`uid`),
   KEY `onEmail` (`email`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   PRIMARY KEY (`rid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ;
 
-INSERT INTO roles ('rid','Description') VALUES
+INSERT INTO roles (`rid`,`Description`) VALUES
 (1, 'Admin'),
 (2, 'User');
 
